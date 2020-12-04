@@ -5,24 +5,32 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.view.isInvisible
 import org.w3c.dom.Text
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
+    //Declaring views
     private lateinit var btnFirst: Button;
     private lateinit var btnSecond: Button;
     private lateinit var tvIncorrect: TextView;
     private lateinit var tvCorrect: TextView;
     private lateinit var tvRes: TextView;
     private lateinit var btnReset: Button;
+    private lateinit var btnRestart: Button;
 
-    var count: Int = 0;// Why this works on global variable only?
+    //Global Variables
+    var count: Int = 0;
+    var incorrect: Int = 0;
+    var correct: Int = 0;
 
+    //Runs on app startup
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
+        //Binding Values
         btnFirst = findViewById(R.id.btnFirst);
         btnSecond = findViewById(R.id.btnSecond);
         tvIncorrect = findViewById(R.id.tvInCorrect);
@@ -30,61 +38,123 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         tvRes = findViewById(R.id.tvRes);
         btnReset = findViewById(R.id.btnReset);
 
-        btnFirst.text = getRandom(1, 100).toString();
-        btnSecond.text = getRandom(1, 100).toString();
 
+        //Initial Random Numbers in Buttons
+        getSuffled();
+        checkResult();
+        hideRes();
+
+
+        //EventListeners for Button Click
         btnFirst.setOnClickListener(this);
         btnSecond.setOnClickListener(this);
         btnReset.setOnClickListener(this);
+
+
     }
 
-    override fun onClick(v: View) {
-
-
-        when (v.id) {
-
-            R.id.btnFirst -> {
-                btnFirst.text = getRandom(1, 100).toString();
-                checkValues();
-            }
-            R.id.btnSecond -> {
-                btnSecond.text = getRandom(1, 100).toString();
-                checkValues();
-            }
-            R.id.btnReset -> {
-                Reset();
-            }
-
-        }
-    }
-
-
+    //Generates random Numbers from..to
     private fun getRandom(from: Int, to: Int): Int {
         require(from <= to) { "Illegal Value Supplied" };
         val rand = Random(System.nanoTime());
         return (from..to).random(rand);
-
     }
 
-    private fun Reset() {
+    //Overriding setOnClickListener : Interface is used to do so.
+    override fun onClick(v: View) {
 
-        btnFirst.text = "";
-        btnSecond.text = "";
+        if (btnFirst.text.toString() != btnSecond.text.toString()) {
+            when (v.id) {
+                R.id.btnFirst -> {
+                    btnFirst.text = getRandom(1, 100).toString();
+                    checkGreatest();
+                }
+
+                R.id.btnSecond -> {
+                    btnSecond.text = getRandom(1, 100).toString();
+                    checkGreatest();
+                }
+                R.id.btnReset -> {
+                    Reset();
+
+                }
+            }
+        } else {
+            getSuffled();
+        }
+
+        countPlus();
+
+
+//        tvRes.text = i.toString();
     }
 
-    private fun checkValues() {
+    private fun countPlus(): Int {
 
-
-        if (btnFirst.text.toString() > btnSecond.text.toString()) {
+        if (btnFirst.isPressed || btnSecond.isPressed) {
             count++;
-            tvCorrect.text = count.toString();
+            if (count >= 10) {
+                btnFirst.isEnabled = false;
+                btnSecond.isEnabled = false;
+                checkResult();
+            }
+        }
+        return count;
+    }
 
-        } else if (btnFirst.text.toString() < btnSecond.text.toString()) {
-            count--;
-            tvIncorrect.text = count.toString();
+    //To heck Greatest number between two numbers
+    private fun checkGreatest() {
+
+        if (btnFirst.text.toString() > btnSecond.text.toString() && btnSecond.text.toString() > btnFirst.text.toString()) {
+            correct++;
+            tvCorrect.text = "Correct: " + correct.toString();
+        } else {
+            incorrect++;
+            tvIncorrect.text = "Incorrect: " + incorrect.toString();
+        }
+    }
+
+
+    //Reset all views to default
+    private fun Reset() {
+        getSuffled();
+        count = 0;
+        correct = 0;
+        incorrect = 0;
+        tvRes.visibility = View.INVISIBLE;
+        tvCorrect.text = "";
+        tvIncorrect.text = "";
+        btnFirst.isEnabled = true;
+        btnSecond.isEnabled = true;
+    }
+
+    //Generte random numbers using function getRandom()
+    private fun getSuffled() {
+        btnFirst.text = getRandom(1, 100).toString();
+        btnSecond.text = getRandom(1, 100).toString();
+    }
+
+    private fun checkResult() {
+
+        if (correct > incorrect) {
+            tvRes.text = "You Won";
+            showRes();
+        } else if (correct < incorrect) {
+            tvRes.text = "You Lose";
+            showRes();
+        } else if(correct==incorrect) {
+            tvRes.text = "Match Draw";
+            showRes();
         }
 
     }
 
+    private fun showRes(){
+        tvRes.visibility=View.VISIBLE;
 
+    }
+    private fun hideRes(){
+        tvRes.visibility=View.INVISIBLE;
+
+    }
 }
