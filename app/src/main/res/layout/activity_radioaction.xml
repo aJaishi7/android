@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Radioaction">
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:id="@+id/tvGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Gender"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_margin="50dp"/>
+
+    <RadioGroup
+        android:id="@+id/rdoGender"
+        android:layout_below="@+id/tvGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rdoMale"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:onClick="clickRadioEvent"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/rdoFemale"
+            android:layout_marginLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:onClick="clickRadioEvent"
+            android:text="Female"
+            android:textStyle="bold"/>
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imgGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rdoGender"/>
+
+</RelativeLayout>
