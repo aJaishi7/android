@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".GridActivity">
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:hint="Enter Twitter Search Query Here" />
+
+    <EditText
+        android:id="@+id/etTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etSearch"
+        android:layout_margin="2dp"
+        android:gravity="center"
+
+        android:hint="Tag Your Query"
+        android:minWidth="270dp" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/etSearch"
+        android:layout_toRightOf="@+id/etTag"
+        android:layout_margin="10dp"
+        android:text="Save" />
+
+    <LinearLayout
+        android:id="@+id/layoutLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSave"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Tagged Searches"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnAndroid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:minWidth="250dp"
+                android:text="AndroidFP" />
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@+id/btnAndroid"
+                android:text="Edit" />
+
+            <Button
+                android:id="@+id/btnDeitel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnAndroid"
+                android:layout_margin="10dp"
+                android:minWidth="250dp"
+                android:text="Deitel" />
+
+            <Button
+                android:id="@+id/btnEditDeitel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnEdit"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@+id/btnDeitel"
+                android:text="Edit" />
+
+            <Button
+                android:id="@+id/btnGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnDeitel"
+                android:layout_margin="10dp"
+                android:minWidth="250dp"
+                android:text="Google" />
+
+            <Button
+                android:id="@+id/btnEditGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnEditDeitel"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@+id/btnDeitel"
+                android:text="Edit" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear Tag" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
