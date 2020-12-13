@@ -15,6 +15,7 @@ class DateActivity : AppCompatActivity() {
     private lateinit var tvDate: TextView;
     private lateinit var btnLoad: Button;
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_date)
@@ -33,6 +34,7 @@ class DateActivity : AppCompatActivity() {
         var day: Int = calendar.get(Calendar.DAY_OF_MONTH);
         var month: Int = calendar.get(Calendar.MONTH);
         var year: Int = calendar.get(Calendar.YEAR);
+
 
         val datePickerDialog = DatePickerDialog(
             this,
