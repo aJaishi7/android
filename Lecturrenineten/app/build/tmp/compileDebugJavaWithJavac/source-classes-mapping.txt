@@ -1,0 +1,2 @@
+com/example/lecturrenineten/BuildConfig.java
+ com.example.lecturrenineten.BuildConfig
