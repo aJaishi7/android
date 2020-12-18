@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lb04">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Employee Info"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvEmpName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Employee Name" />
+
+        <EditText
+            android:id="@+id/etEmpName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/tvEmpName"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tvEmpName" />
+
+        <TextView
+            android:id="@+id/tvDeptName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEmpName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="Department" />
+
+        <Spinner
+            android:id="@+id/spinnerDepartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etEmpName"
+            android:layout_alignRight="@+id/tvDeptName"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/tvEmpName" />
+
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDeptName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="Address" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerDepartment"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/tvAddress" />
+
+        <TextView
+            android:id="@+id/tvJoinedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAddress"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:text="Joined Date" />
+
+
+        <EditText
+            android:id="@+id/etJoinedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAddress"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@id/tvJoinedDate"
+            android:hint="Select Date" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="Submit" />
+
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:text="Outut" />
+
+</LinearLayout>
