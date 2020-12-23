@@ -1,0 +1,4 @@
+#Wed Dec 23 15:18:31 NPT 2020
+base.0=E\:\\Git\\Android\\android\\Destinationpicker\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,2 @@
+com/college/destinationpicker/BuildConfig.java
+ com.college.destinationpicker.BuildConfig
