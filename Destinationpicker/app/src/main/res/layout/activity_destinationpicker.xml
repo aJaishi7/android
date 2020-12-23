@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:orientation="vertical"
+    tools:context=".Destinationpicker">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="Holiday Booking"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/spinnerDestination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:id="@+id/etCheckinDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:hint="Checkin Date"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/etCheckoutDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:hint="Checkout Date"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/etNoOfAdults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:hint="No. of Adults"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etNoOfChildren"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:hint="No. of Children"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:background="@color/teal_700"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Book Hotel" />
+
+</LinearLayout>

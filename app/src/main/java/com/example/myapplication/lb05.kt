@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.w3c.dom.Text
 
 class lb05 : AppCompatActivity() {
 
@@ -20,9 +21,6 @@ class lb05 : AppCompatActivity() {
     private lateinit var etReenterPassword: EditText;
     private lateinit var btnRegister: Button;
     private lateinit var tvSection: TextView;
-
-
-    var final: String = String();
 
     val department = arrayListOf<String>(
         "Academic", "Admission", "Logistics", "Front-Desk", "Examination"
@@ -47,51 +45,66 @@ class lb05 : AppCompatActivity() {
         etReenterPassword = findViewById(R.id.etReenterPassword);
         btnRegister = findViewById(R.id.btnRegister);
         tvSection = findViewById(R.id.tvSection);
-        layout  = findViewById(R.id.layoutLinear)
+        layout = findViewById(R.id.layoutLinear)
         layout.visibility = View.GONE;
         layout.visibility = View.VISIBLE;
         radioGroup = findViewById(R.id.rdoGroup);
-        var a =ArrayAdapter(this,android.R.layout.simple_list_item_1,department);
 
-        radioGroup.setOnCheckedChangeListener(object :RadioGroup.OnCheckedChangeListener{
+
+        radioGroup.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener {
             override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-//                TODO("Not yet implemented")
-                when(checkedId){
-                    R.id.rdoStaff->{
-                        var a =ArrayAdapter(this@lb05,android.R.layout.simple_list_item_1,department);
-                        spinner.adapter = a
+                when (checkedId) {
+                    R.id.rdoStaff -> {
+                        spinner.adapter = ArrayAdapter<String>(
+                            this@lb05,
+                            android.R.layout.simple_list_item_1,
+                            department
+                        );
+                        tvSection.text = "Department";
                     }
-                    R.id.rdoStudent->{
-                        spinner.adapter = ArrayAdapter(this@lb05,android.R.layout.simple_list_item_1,batch)
+                    R.id.rdoStudent -> {
+                        spinner.adapter =
+                            ArrayAdapter(this@lb05, android.R.layout.simple_list_item_1, batch);
+                        tvSection.text = "Batch"
 
                     }
                 }
             }
         })
 
-        final = "$etFullName \n " +
-                "$etEmail \n" +
-                " $tvSection \n" +
-                "$etPassword \n" +
-                "$etReenterPassword \n ";
+        btnRegister.setOnClickListener(View.OnClickListener {
 
+            loadAlert();
 
-        btnRegister.setOnClickListener {
+        });
 
-            buildAlert();
-        }
     }
 
-    fun buildAlert() {
+
+    fun loadAlert() {
 
         val alertBuilder = AlertDialog.Builder(this);
-        alertBuilder.setTitle("Information");
         alertBuilder.setIcon(android.R.drawable.ic_dialog_alert);
-//        alertBuilder.setMessage("$final");
-        var view:View = layoutInflater.inflate(R.layout.activity_date,null);
-        var button :Button = view.findViewById(R.id.btnLoad);
-        button.setText("MyButton")
-        alertBuilder.setView(view)
+        alertBuilder.setTitle("Information");
+        var view: View = layoutInflater.inflate(R.layout.activity_customalert, null);
+
+        var fullName: TextView = view.findViewById(R.id.tv_Fullname);
+        fullName.text = ("FullName:");
+//
+//        var email: TextView = view.findViewById(R.id.tvEmail);
+//        email.setText("Email: $etEmail");
+//
+//        var category: TextView = view.findViewById(R.id.tvCategory);
+//        category.setText("Category: $tvSection : $spinner");
+//
+//        var password: TextView = view.findViewById(R.id.tvPassword);
+//        password.setText("Password: $etPassword");
+
+        var button: Button = view.findViewById(R.id.btnDismiss);
+        button.setText("Dismiss");
+
+        alertBuilder.setView(view);
+
         alertBuilder.setPositiveButton("Yes") { dialog, which -> "" };
         alertBuilder.setNegativeButton("No") { dialog, which -> "" };
 
@@ -99,15 +112,8 @@ class lb05 : AppCompatActivity() {
         alertDialog.setCancelable(false);
         alertDialog.show();
 
-    }
-
-
-
-    fun loadSpinner() {
-
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, department);
-        spinner.adapter = adapter;
-
 
     }
+
+
 }
