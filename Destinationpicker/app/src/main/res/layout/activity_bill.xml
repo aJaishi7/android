@@ -5,11 +5,13 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_margin="30dp"
+    android:gravity="center"
     tools:context=".BillActivity">
 
     <TextView
         android:id="@+id/tvTotalDays"
         android:layout_width="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="20sp" />
@@ -17,6 +19,7 @@
     <TextView
         android:id="@+id/tvAdultAmount"
         android:layout_width="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="20sp" />
@@ -25,6 +28,7 @@
         android:id="@+id/tvChildrenAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:layout_margin="10dp"
         android:textSize="20sp" />
 
@@ -32,6 +36,7 @@
         android:id="@+id/tvTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:layout_margin="10dp"
         android:textSize="20sp" />
 
@@ -40,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="20sp" />
 
     <TextView
@@ -47,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="20sp" />
 
 </LinearLayout>

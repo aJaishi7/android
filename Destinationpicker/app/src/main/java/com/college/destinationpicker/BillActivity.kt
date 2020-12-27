@@ -47,11 +47,11 @@ class BillActivity : AppCompatActivity() {
             val grandTotal = taxAmt + total;
 
             tvTotalDays.text = "Total Holidays Spent: " + diff.toString() + " Days";
-            tvAdultAmount.text = "Total Amount of Adults: " + adultAmt.toString()
-            tvChildrenAmount.text = "Totat Amount of Childrens:" + childrenAmt.toString();
-            tvTotal.text = "Total Amount: " + total.toString();
-            tvTaxAmount.text = "Tax (13%): " + taxAmt.toString();
-            tvGrandTotal.text = "Grand Total: " + grandTotal.toString();
+            tvAdultAmount.text = "Total Amount of Adults: $ " + adultAmt.toString()
+            tvChildrenAmount.text = "Totat Amount of Childrens: $ " + childrenAmt.toString();
+            tvTotal.text = "Total Amount: $ " + total.toString();
+            tvTaxAmount.text = "Tax (13%): $ " + taxAmt.toString();
+            tvGrandTotal.text = "Grand Total: $ " + grandTotal.toString();
 
 
         } else {

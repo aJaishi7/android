@@ -2,12 +2,18 @@ package com.college.destinationpicker
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.ListAdapter
+import java.security.KeyStore
 import java.util.*
+import java.util.Map
+import kotlin.reflect.typeOf
 
 class Destinationpicker : AppCompatActivity() {
 
@@ -19,6 +25,7 @@ class Destinationpicker : AppCompatActivity() {
     private lateinit var btnBook: Button;
 
     val mapOfLocations = mutableMapOf<String, Float>();
+
     var location: String = "";
     var price: Float = 0F;
 
@@ -26,6 +33,7 @@ class Destinationpicker : AppCompatActivity() {
     var d2: String = String();
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -39,21 +47,21 @@ class Destinationpicker : AppCompatActivity() {
         etNoOfChildren = findViewById(R.id.etNoOfChildren);
         btnBook = findViewById(R.id.btnBook);
 
-        mapOfLocations["Pokhara"] = 10000F;
-        mapOfLocations["Lumbini"] = 12000F;
-        mapOfLocations["Chitlang"] = 8000F;
-        mapOfLocations["Gorkha"] = 9000F;
-        mapOfLocations["Manakamana"] = 6000F;
-        mapOfLocations["Kathmandu"] = 16000F;
-        mapOfLocations["Mustang"] = 13000F;
-        mapOfLocations["Manang"] = 11500F;
+        mapOfLocations["Select Location "] = 0F;
+        mapOfLocations["Pokhara - $10000"] = 10000F;
+        mapOfLocations["Lumbini - $12000"] = 12000F;
+        mapOfLocations["Chitlang - $8000"] = 8000F;
+        mapOfLocations["Gorkha - $9000"] = 9000F;
+        mapOfLocations["Manakamana - $6000"] = 6000F;
+        mapOfLocations["Kathmandu - $16000"] = 16000F;
+        mapOfLocations["Mustang - $13000"] = 13000F;
+        mapOfLocations["Manang - $11500"] = 11500F;
 
 
 
         spinnerDestination.adapter = ArrayAdapter<String>(
             this,
-            android.R.layout.simple_dropdown_item_1line,
-            mapOfLocations.keys.toTypedArray()
+            android.R.layout.simple_dropdown_item_1line, mapOfLocations.keys.toTypedArray()
         );
 
         spinnerDestination.onItemSelectedListener =
