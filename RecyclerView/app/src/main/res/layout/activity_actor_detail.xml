@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="149dp"
+        android:layout_height="133dp"
+        android:src="@drawable/noimg" />
+
+    <TextView
+        android:id="@+id/tvActorId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actor ID"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actor Name"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="197dp"
+        android:layout_height="27dp"
+
+        android:text="Actor Address"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvSalary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actor Salary"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
